@@ -1,11 +1,15 @@
 # Ex 2
 
 ## a
+> Explain shortly why the technique used for global alignment cannot be used __as is__ in the case of local alignment.
+
 The technique used in the NW algorithm assumes that the optimal alignment path must cross the middle section of the DP matrix, because it always begins at $(0,0)$ and ends at $(m,n)$. In local alignment this assumption fails: the optimal solution may be completely contained in an internal sub-matrix, never touching the mid column or any boundary. Therefore, the divide-and-conquer strategy of Hirschberg cannot be applied as is.
 
 ---
 
 ## b
+> Suggest a linear-space version for the Smith-Waterman algorithm. Describe your algorithm in full detail.
+
 The idea of our algorithm is to first locate the sub-matrix that contains the optimal local alignment, and then run NW with linear space only on that region.
 
 ---
@@ -23,6 +27,8 @@ The idea of our algorithm is to first locate the sub-matrix that contains the op
 ---
 
 ## c
+> Prove the correctness of your suggested algorithm and analyze its complexity. You may assume correctness and use the complexity bounds proven for all algorithms taught in class.
+
 Steps **1** and **2** correctly identify the sub-matrix containing the optimal local alignment, with path starting at $(i_{\text{start}}, j_{\text{start}})$ and ending at $(i_{\text{end}}, j_{\text{end}})$.
 
 Step **1** is immediate: the maximum cell of the Smith–Waterman matrix is exactly the end-point of the optimal local alignment.
